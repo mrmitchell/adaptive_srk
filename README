@@ -3,3 +3,6 @@ Michael Mitchell
 July 2013
 
 Makefile and details to come...
+
+Based on the adaptive stochastic Runge-Kutta solver described in Kupper, Lehn,
+and Roessler (2007) and Roessler (2003).
