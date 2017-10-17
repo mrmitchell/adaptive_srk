@@ -2,7 +2,20 @@ Stochastic differential equation solver in C++
 Michael Mitchell
 July 2013
 
-Makefile and details to come...
+Based on the adaptive stochastic Runge-Kutta solver described in Kupper,
+Lehn, and Roessler (2007) and Roessler (2003).
 
-Based on the adaptive stochastic Runge-Kutta solver described in Kupper, Lehn,
-and Roessler (2007) and Roessler (2003).
+Solver implemented in C++ (`adaptive_srk') with a Python C extension class
+wrapper (`sdepy').
+
+`SdeFun' implements the SDE dynamics to be calculated; each dynamics
+function takes the variable array pointer `x' and fills the array `dx' with
+the value of the RHS of the dynamics.
+
+`adaptive_srk' implements the function `solver', which takes initial
+conditions and an SdeFun dynamics index, and fills output arrays after
+integrating the dynamics using the solver described by Kupper et al.
+
+`sdepy' wraps the C++ solver for Python.
+Python function syntax: output_tuple = sde_solver(x0, dt_max, abstol, reltol, tf, m, sigma, numpaths, dynamics_mode, params)
+output_tuple = (x_history, t_history, h_history, err_history, call_time)
